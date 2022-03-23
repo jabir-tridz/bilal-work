@@ -1,6 +1,8 @@
 <html>
 <head>
 <style>
+input{background-color: #96D4D4;
+border-radius: 10px;}
 .button {
   border: none;
   color: white;
@@ -9,25 +11,39 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
+  border-radius: 10px;
 }
 .button1 {background-color: #4CAF50;} /* Green */
-.container {
-  width: 500px;
-  clear: both;
-}
 td{
         width: 150px;
-        border: 1px solid black;
+        border: 2px solid white;
         padding: 5px;
+        border-collapse: collapse;
+        text-align:left;
+        background-color: #6495ED;
+        border-radius: 10px;
       }
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-collapse: collapse;
+}
+.readonly{
+	background-color: #6495ED;
+}
+.buttontab{
+	background-color: white;
+}
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="container">
-<table>
+<table class="center">
 <tr>
 <td align="right">D2 Price(A):</td>
 	<td align="left"><input type="number" id="n1"/></td>
@@ -41,28 +57,31 @@ td{
 	<td align="left"><input type="text" id="n3" readonly/></td>
 </tr>
 <tr>
-<td align="right">C/Exchange Rate<input type="number" id="n4" value="12" size="1"/>(D):</td>
-	<td align="left"><input type="text" id="n5" readonly/></td>
+<td align="right">C/Ex.Rate<input type="number" id="n4" value="12" style="width: 6em"/>(D):</td>
+	<td align="left"><input class="readonly" type="text" id="n5" readonly/></td>
 </tr>
 <tr>
-<td align="right">D/GP<input type="number" id="n6" value="0.5" size="1"/>(E):</td>
-	<td align="right"><input type="number" id="n7" readonly/></td>
+<td align="right">D/GP<input type="number" id="n6" value="0.5" style="width: 6em"/>(E):</td>
+	<td align="right"><input class="readonly" type="number" id="n7" readonly/></td>
+</tr>
+<tr>
+<td style="text-align: center" class="buttontab" colspan="2">
+<button  class="button button1" type="button" onclick="return getInputValue();">CALCULATE</button>
+</td>
 </tr>
 </table>
-<button  class="button button1" type="buztton" onclick="return getInputValue();">CALCULATE</button>
-</div>
 <script>
 function getInputValue(){
-	var a = parseFloat(document.getElementById('n1').value);
-	var b = parseFloat(document.getElementById('n2').value);
-	var c = parseFloat(a/b);
-	document.getElementById('n3').value = c;
-	var n4 = parseFloat(document.getElementById('n4').value);
-	var d = parseFloat(c/n4);
-	document.getElementById('n5').value = d;
-	var n6 = parseFloat(document.getElementById('n6').value);
-	var e = parseFloat(d/n6);
-	document.getElementById('n7').value = e;
+		var a = parseFloat(document.getElementById('n1').value);
+		var b = parseFloat(document.getElementById('n2').value);
+		var c = parseFloat(a/b);
+		document.getElementById('n3').value = c;
+		var n4 = parseFloat(document.getElementById('n4').value);
+		var d = parseFloat(c/n4);
+		document.getElementById('n5').value = d;
+		var n6 = parseFloat(document.getElementById('n6').value);
+		var e = parseFloat(d/n6);
+		document.getElementById('n7').value = e;
 }
 </script>
 </body>
