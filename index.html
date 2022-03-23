@@ -1,0 +1,71 @@
+<html>
+<head>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 5px 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button1 {background-color: #4CAF50;} /* Green */
+.container {
+  width: 500px;
+  clear: both;
+}
+td{
+        width: 150px;
+        border: 1px solid black;
+        padding: 5px;
+      }
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="container">
+<form>
+<table>
+<tr>
+<td align="right">D2 Price(A):</td>
+	<td align="left"><input type="number" id="n1"/></td>
+</tr>
+<tr>
+<td align="right">Psc(B):</td>	
+	<td align="left"><input type="number" id="n2"/></td>
+</tr>
+<tr>
+<td align="right">D2 Price/Psc(C):</td>
+	<td align="left"><input type="text" id="n3" readonly/></td>
+</tr>
+<tr>
+<td align="right">C/<input type="text" id="n4" value="12" size="1"/>(D):</td>
+	<td align="left"><input type="text" id="n5" readonly/></td>
+</tr>
+<tr>
+<td align="right">D/<input type="text" id="n6" value="0.5" size="1"/>(E):</td>
+	<td align="right"><input type="number" id="n7" readonly/></td>
+</tr>
+</table>
+<button  class="button button1" type="button" onclick="getInputValue();">CALCULATE</button>
+</form>
+</div>
+<script>
+function getInputValue(){
+	var a = parseFloat(document.getElementById('n1').value);
+	var b = parseFloat(document.getElementById('n2').value);
+	var c = parseFloat(a/b);
+	document.getElementById('n3').value = c;
+	var n4 = parseFloat(document.getElementById('n4').value);
+	var d = parseFloat(c/n4);
+	document.getElementById('n5').value = d;
+	var n6 = parseFloat(document.getElementById('n6').value);
+	var e = parseFloat(d/n6);
+	document.getElementById('n7').value = e;
+}
+</script>
+</body>
+</html>
