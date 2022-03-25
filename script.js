@@ -4,7 +4,7 @@ function getInputValue(){
 	var c = parseFloat(a/b);
 	document.getElementById('n3').value = c;
 	var n4 = parseFloat(document.getElementById('n4').value);
-	if(n4 == 0){
+	if(!n4||n4==0){
 		document.getElementById('n5').value = c;
 		var n6 = parseFloat(document.getElementById('n6').value);
 		var e = parseFloat(c/n6);
@@ -17,4 +17,14 @@ function getInputValue(){
 		var e = parseFloat(d/n6);
 		document.getElementById('n7').value = e;
 	}
+}
+
+function clearValue(){
+	document.getElementById('n1').value = 0;
+	document.getElementById('n2').value = 0;
+	document.getElementById('n3').value = 0;
+	document.getElementById('n4').value = 0;
+	document.getElementById('n5').value = 0;
+	document.getElementById('n6').value = 0;
+	document.getElementById('n7').value = 0;
 }
